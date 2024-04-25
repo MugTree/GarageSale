@@ -1,5 +1,8 @@
 ﻿using System.Net.Http.Headers;
 using dotenv.net;
+using GarageSale.Utils;
+using GarageSale.Services;
+using GarageSale.Models;
 
 var env = DotEnv.Read();
 using HttpClient client = new();
@@ -15,5 +18,5 @@ var customers = people.Where(p => p.Name != seller.Name).Select(p => p.ToCustome
 var saleItems = things.Select(t => t.ToSaleItem(seller.Disposition)).ToList();
 
 var sentiment = Utilities.GetRandomEnumValue(new MarketSentiment[] { MarketSentiment.Buyers, MarketSentiment.Sellers });
-var sale = GarageSale.Run(seller, customers, saleItems, sentiment); //.Run(people, things);
+var sale = SaleDay.Run(seller, customers, saleItems, sentiment); //.Run(people, things);
 

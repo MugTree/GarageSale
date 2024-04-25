@@ -1,2 +1,6 @@
 using System.Text.Json.Serialization;
-public record class SaleResult([property: JsonPropertyName("customer")] string Customer);
+
+namespace GarageSale.Models
+{
+    public record class SaleResult([property: JsonPropertyName("customer")] string Customer);
+}

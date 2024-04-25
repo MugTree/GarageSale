@@ -1,19 +1,24 @@
 using System.Text.Json.Serialization;
-public record class Person([property: JsonPropertyName("name")] string Name)
+using GarageSale.Utils;
+
+namespace GarageSale.Models
 {
-    public Customer ToCustomer()
+    public record class Person([property: JsonPropertyName("name")] string Name)
     {
-        return new Customer(Name, GetDisposition());
-    }
+        public Customer ToCustomer()
+        {
+            return new Customer(Name, GetDisposition());
+        }
 
-    public Seller ToSeller()
-    {
-        return new Seller(Name, GetDisposition());
-    }
+        public Seller ToSeller()
+        {
+            return new Seller(Name, GetDisposition());
+        }
 
-    private Disposition GetDisposition()
-    {
-        return Utilities.GetRandomEnumValue(new Disposition[] { Disposition.Greedy, Disposition.Honest });
-    }
+        private Disposition GetDisposition()
+        {
+            return Utilities.GetRandomEnumValue(new Disposition[] { Disposition.Greedy, Disposition.Honest });
+        }
 
+    }
 }

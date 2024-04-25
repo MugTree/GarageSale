@@ -1,11 +1,16 @@
 using System.Text.Json.Serialization;
-public record class Thing([property: JsonPropertyName("name")] string Name, [property: JsonPropertyName("intrinsicValue")] int IntrinsicValue)
+using GarageSale.Utils;
+
+namespace GarageSale.Models
 {
-
-    public SaleItem ToSaleItem(Disposition sellerDisposition)
+    public record class Thing([property: JsonPropertyName("name")] string Name, [property: JsonPropertyName("intrinsicValue")] int IntrinsicValue)
     {
-        int disposition = (int)sellerDisposition;
-        return new SaleItem(Name, Cost: IntrinsicValue * disposition);
-    }
 
+        public SaleItem ToSaleItem(Disposition sellerDisposition)
+        {
+            int disposition = (int)sellerDisposition;
+            return new SaleItem(Name, Cost: IntrinsicValue * disposition);
+        }
+
+    }
 }
