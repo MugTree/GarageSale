@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "route": "people"
+  },
+  "response": {
+    "status": "OK",
+    "body": [
+      {
+        "name": "Matt"
+      },
+      { "name": "John" },
+      { "name": "Ed" },
+      { "name": "Simon" }
+    ]
+  }
+}

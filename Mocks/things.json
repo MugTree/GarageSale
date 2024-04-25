@@ -1,0 +1,16 @@
+{
+  "request": {
+    "method": "GET",
+    "route": "things"
+  },
+  "response": {
+    "status": "OK",
+    "body": [
+      {
+        "name": "Car",
+        "intrinsicValue": 100
+      },
+      { "name": "Bike", "intrinsicValue": 20 }
+    ]
+  }
+}
