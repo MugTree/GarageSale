@@ -5,6 +5,13 @@ public enum Disposition
 };
 
 
+public enum MarketSentiment
+{
+    Buyers,
+    Sellers
+}
+
+
 public static class Utilities
 {
     public static T GetRandomEnumValue<T>(T[] enumVals) where T : Enum

@@ -2,7 +2,7 @@
 class GarageSale()
 {
 
-    public static List<SaleResult> Run(Seller seller, List<Customer> customers, List<SaleItem> items)
+    public static List<SaleResult> Run(Seller seller, List<Customer> customers, List<SaleItem> items, MarketSentiment sentiment)
     {
 
         Console.WriteLine("seller is... ");
