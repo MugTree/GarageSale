@@ -2,6 +2,10 @@
 
 Basic .NET command line app using data from a mock server to show basic understanding of object mapping, serial and deserialiation c# .NET
 
+## Needs
+
+logging
+
 ### App uses a mock server
 
 https://natenho.github.io/Mockaco/
