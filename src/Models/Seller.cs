@@ -3,5 +3,10 @@ using GarageSale.Utils;
 
 namespace GarageSale.Models
 {
-    public record class Seller([property: JsonPropertyName("name")] string Name, [property: JsonPropertyName("disposition")] Disposition Disposition);
+    public class Seller(string name, Disposition disposition)
+    {
+        public string Name { get; set; } = name;
+        public Disposition Disposition { get; set; } = disposition;
+        public double Profit { get; set; }
+    }
 }

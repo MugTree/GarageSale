@@ -3,8 +3,8 @@ namespace GarageSale.Utils
 
     public enum Disposition
     {
-        Honest = 1,
-        Greedy = 3,
+        Friendly,
+        Mean,
     };
 
 

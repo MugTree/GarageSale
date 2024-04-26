@@ -7,11 +7,12 @@
     "status": "OK",
     "body": [
       {
-        "name": "Matt"
+        "name": "Matt",
+        "funds": 200
       },
-      { "name": "John" },
-      { "name": "Ed" },
-      { "name": "Simon" }
+      { "name": "John", "funds": 200 },
+      { "name": "Ed", "funds": 100 },
+      { "name": "Simon", "funds": 50 }
     ]
   }
 }
