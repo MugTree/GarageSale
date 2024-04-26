@@ -17,8 +17,11 @@ namespace GarageSale.Services
 
         public static void WriteReport(SaleResult res)
         {
-            // In real world would probably send data off somewhere else...
-            string json = JsonSerializer.Serialize(res);
+            string json = JsonSerializer.Serialize(res, new JsonSerializerOptions()
+            {
+                WriteIndented = true
+            });
+            Console.WriteLine("-------------------");
             Console.WriteLine(json);
         }
 

@@ -10,12 +10,12 @@
         "name": "Car",
         "intrinsicValue": 100
       },
-      { "name": "Bike", "intrinsicValue": 20 },
+      { "name": "Bike", "intrinsicValue": 60 },
       { "name": "Pot Plant", "intrinsicValue": 10 },
       { "name": "Mug", "intrinsicValue": 5 },
-      { "name": "Guitar", "intrinsicValue": 30 },
+      { "name": "Guitar", "intrinsicValue": 60 },
       { "name": "Rubics Cube", "intrinsicValue": 15 },
-      { "name": "Laptop", "intrinsicValue": 75 }
+      { "name": "Laptop", "intrinsicValue": 95 }
     ]
   }
 }

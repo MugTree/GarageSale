@@ -69,7 +69,8 @@ namespace GarageSale.Services
             var buyers = Customers.Where(c => c.Spend > 0).Select(p => new Buyer(p.Name, p.Spend, p.Purchases)).ToList();
             var sold = Items.Where(i => i.Sold).Select(p => p.Name).ToList();
 
-            return new SaleResult(Seller.Name, Seller.Profit, sold, buyers);
+            return new SaleResult(Seller.Disposition.ToString() + " " + Seller.Name, Sentiment.ToString(), Seller.Profit, sold, buyers);
+
         }
     }
 }

@@ -9,7 +9,7 @@ namespace GarageSale.Models
         public SaleItem ToSaleItem(Disposition sellerDisposition)
         {
             double salePrice = (sellerDisposition == Disposition.Mean) ? IntrinsicValue * 2 : IntrinsicValue * 1.2;
-            Console.WriteLine("{0} priced at {1} seller is {2}", Name, salePrice, sellerDisposition);
+            //Console.WriteLine("{0} priced at {1} seller is {2}", Name, salePrice, sellerDisposition);
             return new SaleItem(Name, IntrinsicValue, salePrice, false);
         }
 

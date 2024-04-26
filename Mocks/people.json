@@ -8,9 +8,9 @@
     "body": [
       {
         "name": "Matt",
-        "funds": 200
+        "funds": 90
       },
-      { "name": "John", "funds": 200 },
+      { "name": "John", "funds": 100 },
       { "name": "Ed", "funds": 100 },
       { "name": "Simon", "funds": 50 }
     ]
