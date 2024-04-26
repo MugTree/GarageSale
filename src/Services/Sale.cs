@@ -16,7 +16,7 @@ namespace GarageSale.Services
             return r.Next(0, 2) == 1 && i.Price < c.Funds && !i.Sold && Sentiment == MarketSentiment.Buyers;
         }
 
-        private void CompleteSale(Customer c, SaleItem i)
+        private void Sell(Customer c, SaleItem i)
         {
             c.Funds -= i.Price;
             i.Sold = true;
@@ -49,7 +49,7 @@ namespace GarageSale.Services
                     }
                     if (Seller.Disposition == Disposition.Friendly && c.Disposition == Disposition.Friendly && i.Price < c.Funds)
                     {
-                        CompleteSale(c, i);
+                        Sell(c, i);
                     }
                     if (c.Funds == 0)
                     {
@@ -60,7 +60,7 @@ namespace GarageSale.Services
                     if (ImpulsePurchase(i, c))
                     {
                         Console.WriteLine("{0} makes an impulse purchase...", c.Name);
-                        CompleteSale(c, i);
+                        Sell(c, i);
                     }
                 }
             }
