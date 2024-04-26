@@ -3,12 +3,18 @@ using GarageSale.Models;
 
 namespace GarageSale.Services
 {
-    public class SaleDay(Seller seller, List<Customer> customers, List<SaleItem> items, MarketSentiment sentiment)
+    public class Sale(Seller seller, List<Customer> customers, List<SaleItem> items, MarketSentiment sentiment)
     {
         private readonly Seller Seller = seller;
         private readonly List<Customer> Customers = customers;
         private readonly List<SaleItem> Items = items;
         private readonly MarketSentiment Sentiment = sentiment;
+
+        private bool ImpulsePurchase(SaleItem i, Customer c)
+        {
+            var r = new Random();
+            return r.Next(0, 2) == 1 && i.Price < c.Funds && !i.Sold && Sentiment == MarketSentiment.Buyers;
+        }
 
         private void CompleteSale(Customer c, SaleItem i)
         {
@@ -50,9 +56,8 @@ namespace GarageSale.Services
                         Console.WriteLine("{0} is out of money...", c.Name);
                         break;
                     }
-                    var r = new Random();
-                    // Purchase on a whim
-                    if (r.Next(0, 2) == 1 && i.Price < c.Funds)
+
+                    if (ImpulsePurchase(i, c))
                     {
                         Console.WriteLine("{0} makes an impulse purchase...", c.Name);
                         CompleteSale(c, i);
