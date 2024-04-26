@@ -1,4 +1,3 @@
-using GarageSale.Utils;
 using GarageSale.Models;
 
 namespace GarageSale.Services
@@ -19,6 +18,7 @@ namespace GarageSale.Services
         private void Sell(Customer c, SaleItem i)
         {
             c.Funds -= i.Price;
+            c.Spend += i.Price;
             i.Sold = true;
             Seller.Profit += i.Price - i.IntrinsicValue;
             c.Purchases.Add(new Purchase(i.Name, i.Price));
@@ -42,7 +42,7 @@ namespace GarageSale.Services
                         Console.WriteLine("{0} Can't afford the {1}", c.Name, i.Name);
                         continue;
                     }
-                    if (Seller.Disposition == Disposition.Mean && c.Disposition == Disposition.Mean && Sentiment == MarketSentiment.Buyers)
+                    if (Seller.Disposition == Disposition.Mean && c.Disposition == Disposition.Mean && Sentiment == MarketSentiment.Sellers)
                     {
                         Console.WriteLine("{0} is out today doesn't like {1} and it's the wrong time...", c.Name, Seller.Name);
                         break;
@@ -56,7 +56,6 @@ namespace GarageSale.Services
                         Console.WriteLine("{0} is out of money...", c.Name);
                         break;
                     }
-
                     if (ImpulsePurchase(i, c))
                     {
                         Console.WriteLine("{0} makes an impulse purchase...", c.Name);
@@ -67,9 +66,10 @@ namespace GarageSale.Services
 
             Console.WriteLine("{0} has made a profit of {1}", Seller.Name, Seller.Profit);
 
-            var res = new SaleResult(Seller.Name, Seller.Profit, Items.Where(i => i.Sold).Select(p => p.Name).ToList());
+            var buyers = Customers.Where(c => c.Spend > 0).Select(p => new Buyer(p.Name, p.Spend, p.Purchases)).ToList();
+            var sold = Items.Where(i => i.Sold).Select(p => p.Name).ToList();
 
-            return res;
+            return new SaleResult(Seller.Name, Seller.Profit, sold, buyers);
         }
     }
 }

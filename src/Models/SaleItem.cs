@@ -1,9 +1,5 @@
-using System.Text.Json.Serialization;
-using GarageSale.Utils;
-
 namespace GarageSale.Models
 {
-
     public class SaleItem(string name, int intrinsicValue, double price, bool sold)
     {
         public string Name { get; set; } = name;

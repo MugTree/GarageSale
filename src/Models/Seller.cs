@@ -1,6 +1,3 @@
-using System.Text.Json.Serialization;
-using GarageSale.Utils;
-
 namespace GarageSale.Models
 {
     public class Seller(string name, Disposition disposition)
